@@ -1,0 +1,56 @@
+
+<div class="container">
+    <h2>Order List</h2>
+    <p><?php echo $this->flash->output() ?></p>
+    <div style="text-align:right;margin:5px;">
+    <?php echo $this->tag->linkTo([
+                                "index/edit",
+                                '<i class="fa fa-plus" aria-hidden="true"></i> Add',
+                                "class" => "btn btn-danger btn-sm",
+                            ]);?>
+    </div>
+    
+<table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Order Id</th>
+                        <th>User Name</th>
+                        <th>Item Name</th>
+                        <th>Quantity</th>
+                        <th>Item Price</th>
+                        <th>Total Price</th>
+                        <th>Create At</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                <?php 
+                 if($orders):
+                  foreach ($orders as $order) :
+                ?>
+                    <tr>
+                         <td><?php echo $order['order_id'] ?></td>
+                         <td><?php echo $order['user_name'] ?></td>
+                         <td style="text-align: center;">
+                            <span class="badge badge-info">  <?php echo strtoupper($order['name']) ?></span>
+                          </td>
+                         <td><?php echo $order['quantity'] ?></td>
+                         <td><?php echo $order['item_price'] ?>€</td>
+                         <td><?php echo $order['total_price'] ?>€</td>
+                         <td><?php echo (!empty($order['create_date'])) ? date( 'd/m/Y' , $order['create_date'] ) : '' ?></td>
+                         <td style="text-align:center">
+                         <?php echo $this->tag->linkTo([
+                                "index/edit?edit=true&order_id=".$order['order_id']."&item_id=".$order['item_id'],
+                                '<i class="fa fa-edit" aria-hidden="true"></i>',
+                                "class" => "btn btn-warning btn-sm",
+                            ]);?>
+                        </td>
+                    </tr>   
+                <?php 
+                    endforeach; 
+                endif;
+                 ?>
+                </tbody>
+            </table>
+</div>

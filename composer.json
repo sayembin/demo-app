@@ -1,0 +1,21 @@
+{
+    "name": "phalcon/app",
+    "description": "demo app",
+    "autoload": {
+        "psr-4": {
+            "Phalcon\\App\\": "demo/app"
+        }
+    },
+    "authors": [
+        {
+            "name": "sayem",
+            "email": "sayemdoc@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "phalcon/devtools": "^3.4"
+    },
+    "require": {
+        "fzaninotto/faker": "^1.9"
+    }
+}
