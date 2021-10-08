@@ -13,5 +13,6 @@ execute ```docker-compose build``` and ```docker-compose up -d```
 ```yarn add cypress --dev``` (it will install cypress in your local machine)
 #### replace your test workdir cypress.json file with application  <app_root_dir>/e2e/cypress.json file  
 ### move the <app_root_dir>/e2e/cypress/integration/demo_app/demo_app_spec.js to your workdir <your_test_work_dir>/cypress/integration/demo_app/demo_app_spec.js 
-```yarn run cypress open```
+
+Execute this command ```yarn run cypress open```
 My local test video available in 'e2e\cypress\videos\'
